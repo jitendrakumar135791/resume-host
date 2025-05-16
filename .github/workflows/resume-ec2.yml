@@ -13,16 +13,16 @@ jobs:
       - name: Deploy to server
         uses: easingthemes/ssh-deploy@main
         env:
-          SSH_PRIVATE_KEY: '${{ secrets.EC2_SSH_KEY}}'
-          REMOTE_HOST: '${{ secrets.DNS_HOST}}'
-          REMOTE_USER: '${{ secrets.USERNAME}}'
-          TARGET: '${{ secrets.TARGET_DIR}}'
+          SSH_PRIVATE_KEY: ${{ secrets.EC2_SSH_KEY}}
+          REMOTE_HOST: ${{ secrets.DNS_HOST}}
+          REMOTE_USER: ${{ secrets.USERNAME}}
+          TARGET: ${{ secrets.TARGET_DIR}}
       - name: Executing remote SSH command using ssh key
         uses: appleboy/ssh-action@master
         with:
-          host: '${{ secrets.HOST_DNS}}'
-          username: '${{ secrets.USERNAME}}'
-          key: '${{ secrets.EC2_SSH_KEY}}'
+          host: ${{ secrets.HOST_DNS}}
+          username: ${{ secrets.USERNAME}}
+          key: ${{ secrets.EC2_SSH_KEY}}
           script: |
            sudo apt-get -y update
            sudo apt-get install -y apache2
